@@ -30,13 +30,11 @@
 
     <table class="table">
         <tr>
-            <th>Osariik</th>
             <th>Maaa</th>
             <th>Uusi juhtumeid tuvastatud</th>
             <th>Erinevused eelneva päevaga võrreldes</th>
         </tr>
         <tr th:each="locStat : ${locStats}">
-            <td th:text="${locStat.state}"></td>
             <td th:text="${locStat.country}"></td>
             <td th:text="${locStat.latestTotalCases}"></td>
             <td th:text="${locStat.diffFromPrevDay}"></td>
