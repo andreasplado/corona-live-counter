@@ -5,6 +5,12 @@
 <head>
     <title>Koroonaviiruse laivandmed</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="https://res.cloudinary.com/dyrx7fhw7/raw/upload/v1585257575/main_o68jij.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
+    <script src="https://res.cloudinary.com/dyrx7fhw7/raw/upload/v1585257575/main_o68jij.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
@@ -28,6 +34,12 @@
 
     </div>
 
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">@</span>
+        </div>
+        <input type="text" id="search-box" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
     <table class="table" style="
     background: red;
     opacity: 84%;
@@ -39,9 +51,9 @@
             <th>Erinevused eelneva päevaga võrreldes</th>
         </tr>
         <tr th:each="locStat : ${locStats}">
-            <td th:text="${locStat.country}"></td>
-            <td th:text="${locStat.latestTotalCases}"></td>
-            <td th:text="${locStat.diffFromPrevDay}"></td>
+            <td class="content" th:text="${locStat.country}"></td>
+            <td class="content" th:text="${locStat.latestTotalCases}"></td>
+            <td class="content" th:text="${locStat.diffFromPrevDay}"></td>
         </tr>
     </table>
 </div>
