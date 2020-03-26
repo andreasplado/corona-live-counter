@@ -12,28 +12,28 @@
 <div class="container">
     <h1></h1>
     <h1><span th:text="${title}"></span></h1>
-    <p>This application lists the current number of cases reported across the globe</p>
+    <p>Koroona viiruse statistika üle maailma</p>
 
     <div class="jumbotron">
         <h1 class="display-4" th:text="${totalReportedCases}"></h1>
-        <p class="lead">Total cases reported as of today</p>
+        <p class="lead">Täna aset leidvad juhtumid</p>
         <hr class="my-4">
         <p>
-            <span>New cases reported since previous day:</span>
+            <span>Alates eelmisest päevast on teatatud uutest juhtudest:</span>
             <span th:text="${totalLatestCases}"></span>
-            <span> which is a </span>
+            <span> korda, mis on  </span>
             <span th:text="${#numbers.formatDecimal(percentChange,1,2)}"></span>
-            <span>% change from last day's figure... </span>
+            <span>% viimase päeva andmetest... </span>
         </p>
 
     </div>
 
     <table class="table">
         <tr>
-            <th>State</th>
-            <th>Country</th>
-            <th>Net Cases Reported</th>
-            <th>Changes In Count</th>
+            <th>Osariik</th>
+            <th>Maaa</th>
+            <th>Uusi juhtumeid tuvastatud</th>
+            <th>Erinevused eelneva päevaga võrreldes</th>
         </tr>
         <tr th:each="locStat : ${locStats}">
             <td th:text="${locStat.state}"></td>
