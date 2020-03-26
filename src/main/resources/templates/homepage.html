@@ -16,12 +16,12 @@
 
     <div class="jumbotron">
         <h1 class="display-4" th:text="${totalReportedCases}"></h1>
-        <p class="lead">Täna aset leidvad juhtumid</p>
+        <p class="lead">Aset leidnud juhtumeid</p>
         <hr class="my-4">
         <p>
             <span>Alates eelmisest päevast on teatatud uutest juhtudest:</span>
             <span th:text="${totalLatestCases}"></span>
-            <span> korda, mis on  </span>
+            <span> mis on  </span>
             <span th:text="${#numbers.formatDecimal(percentChange,1,2)}"></span>
             <span>% viimase päeva andmetest... </span>
         </p>
