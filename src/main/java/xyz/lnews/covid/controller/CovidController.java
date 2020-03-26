@@ -36,7 +36,7 @@ public class CovidController {
         System.out.println(totalReportedCases);
         System.out.println(percentChange);
 
-        model.addAttribute("title","Covid-19 Tracker Tool");
+        model.addAttribute("title","Covid-19 viiruse haigestunute arv");
         model.addAttribute("totalReportedCases",totalReportedCases);
         model.addAttribute("totalLatestCases",totalLatestCases);
         model.addAttribute("percentChange",percentChange);
