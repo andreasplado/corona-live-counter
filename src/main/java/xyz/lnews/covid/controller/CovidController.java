@@ -22,8 +22,7 @@ public class CovidController {
     public String homePage(Model model){
 
         List<LocStats> allStats = covidService.getAllStats();
-        allStats.sort(Comparator.comparing(LocStats::getLatestTotalCases));
-        Collections.sort(allStats, Collections.reverseOrder());
+        allStats.sort(Comparator.comparing(LocStats::getLatestTotalCases).reversed());
         int totalReportedCases = allStats.stream().mapToInt(s->s.getLatestTotalCases()).sum();
         int totalLatestCases = allStats.stream().mapToInt(s->s.getDiffFromPrevDay()).sum();
 
