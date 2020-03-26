@@ -50,10 +50,10 @@
             <th>Juhtumeid tuvastatud</th>
             <th>Erinevused eelneva päevaga võrreldes</th>
         </tr>
-        <tr th:each="locStat : ${locStats}">
-            <td class="content" th:text="${locStat.country}"></td>
-            <td class="content" th:text="${locStat.latestTotalCases}"></td>
-            <td class="content" th:text="${locStat.diffFromPrevDay}"></td>
+        <tr class="content" th:each="locStat : ${locStats}">
+            <td th:text="${locStat.country}"></td>
+            <td th:text="${locStat.latestTotalCases}"></td>
+            <td th:text="${locStat.diffFromPrevDay}"></td>
         </tr>
     </table>
 </div>
