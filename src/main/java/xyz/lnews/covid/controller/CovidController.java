@@ -10,9 +10,7 @@ import xyz.lnews.covid.service.CovidServiceImpl;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 
 @Controller
 public class CovidController {
@@ -25,6 +23,7 @@ public class CovidController {
 
         List<LocStats> allStats = covidService.getAllStats();
         allStats.sort(Comparator.comparing(LocStats::getLatestTotalCases));
+        Collections.sort(allStats, Collections.reverseOrder());
         int totalReportedCases = allStats.stream().mapToInt(s->s.getLatestTotalCases()).sum();
         int totalLatestCases = allStats.stream().mapToInt(s->s.getDiffFromPrevDay()).sum();
 
