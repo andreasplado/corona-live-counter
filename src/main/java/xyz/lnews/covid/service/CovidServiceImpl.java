@@ -49,17 +49,11 @@ public class CovidServiceImpl {
         for (CSVRecord record : records) {
             LocStats locationStat = new LocStats();
             System.out.println(record);
-            locationStat.setNation("US");
+            locationStat.setNation(record.get(1));
+            locationStat.setConfirmedCases(record.get(2));
+            locationStat.setDeath(record.get(3));
+            locationStat.setRecover(record.get(4));
 
-            if(record.get(record.size() - 1).equals("")) {
-                latestCases = 0;
-                prevDayCases = 0;
-            }else {
-                latestCases = Integer.parseInt(record.get(record.size() - 1));
-                prevDayCases = Integer.parseInt(record.get(record.size() - 2));
-            }
-            locationStat.setLatestTotalCases(latestCases);
-            locationStat.setDiffFromPrevDay(latestCases - prevDayCases);
             newStats.add(locationStat);
         }
         this.allStats = newStats;
