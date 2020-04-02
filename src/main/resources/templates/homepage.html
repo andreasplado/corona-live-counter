@@ -47,11 +47,13 @@
 ">
         <tr>
             <th>Maa</th>
+            <th>Osariik/Maakond</th>
             <th>Juhtumeid tuvastatud</th>
             <th>Erinevused eelneva päevaga võrreldes</th>
         </tr>
         <tr class="content" th:each="locStat : ${locStats}">
             <td th:text="${locStat.country}"></td>
+            <td th:text="${locStat.state}"></td>
             <td th:text="${locStat.latestTotalCases}"></td>
             <td th:text="${locStat.diffFromPrevDay}"></td>
         </tr>
