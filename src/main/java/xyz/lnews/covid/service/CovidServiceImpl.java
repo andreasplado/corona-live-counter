@@ -48,7 +48,8 @@ public class CovidServiceImpl {
 
         for (CSVRecord record : records) {
             LocStats locationStat = new LocStats();
-            locationStat.setNation(record.get(0));
+            System.out.println(record);
+            locationStat.setNation("US");
 
             if(record.get(record.size() - 1).equals("")) {
                 latestCases = 0;
