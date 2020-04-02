@@ -1,11 +1,7 @@
 package xyz.lnews.covid.service;
 
 import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
-import org.apache.tomcat.util.http.fileupload.FileUtils;
-import org.apache.tomcat.util.http.fileupload.IOUtils;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import xyz.lnews.covid.model.LocStats;
 
@@ -13,7 +9,6 @@ import javax.annotation.PostConstruct;
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
 import java.net.URL;
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,8 +48,7 @@ public class CovidServiceImpl {
 
         for (CSVRecord record : records) {
             LocStats locationStat = new LocStats();
-            locationStat.setState(record.get(0));
-            locationStat.setCountry(record.get(1));
+            locationStat.setNation(record.get(1));
 
             if(record.get(record.size() - 1).equals("")) {
                 latestCases = 0;

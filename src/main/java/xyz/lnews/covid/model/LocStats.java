@@ -2,8 +2,7 @@ package xyz.lnews.covid.model;
 
 public class LocStats {
 
-    private String state;
-    private String country;
+    private String nation;
     private int latestTotalCases;
     private int diffFromPrevDay;
 
@@ -15,20 +14,12 @@ public class LocStats {
         this.diffFromPrevDay = diffFromPrevDay;
     }
 
-    public String getState() {
-        return state;
+    public String getNation() {
+        return nation;
     }
 
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
+    public void setNation(String nation) {
+        this.nation = nation;
     }
 
     public int getLatestTotalCases() {
@@ -42,8 +33,7 @@ public class LocStats {
     @Override
     public String toString() {
         return "LocationStats{" +
-                "state='" + state + '\'' +
-                ", country='" + country + '\'' +
+                ", country='" + nation + '\'' +
                 ", latestTotalCases=" + latestTotalCases +
                 '}';
     }
