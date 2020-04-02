@@ -2,10 +2,8 @@ package xyz.lnews.covid.model;
 
 public class LocStats {
 
+    private String state;
     private String nation;
-    private String confirmedCases;
-    private String death;
-    private String recover;
     private int latestTotalCases;
     private int diffFromPrevDay;
 
@@ -15,6 +13,14 @@ public class LocStats {
 
     public void setDiffFromPrevDay(int diffFromPrevDay) {
         this.diffFromPrevDay = diffFromPrevDay;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 
     public String getNation() {
@@ -36,32 +42,9 @@ public class LocStats {
     @Override
     public String toString() {
         return "LocationStats{" +
+                "state='" + state + '\'' +
                 ", country='" + nation + '\'' +
                 ", latestTotalCases=" + latestTotalCases +
                 '}';
-    }
-
-    public String getConfirmedCases() {
-        return confirmedCases;
-    }
-
-    public void setConfirmedCases(String confirmedCases) {
-        this.confirmedCases = confirmedCases;
-    }
-
-    public String getDeath() {
-        return death;
-    }
-
-    public void setDeath(String death) {
-        this.death = death;
-    }
-
-    public String getRecover() {
-        return recover;
-    }
-
-    public void setRecover(String recover) {
-        this.recover = recover;
     }
 }

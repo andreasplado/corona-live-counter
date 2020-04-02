@@ -16,8 +16,8 @@ import java.util.List;
 public class CovidServiceImpl {
 
     private static String CSV_READER_PATH = "corona-virus-dataset.csv";
-    //private static String CSV_READER_URL = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv";
-    private static String CSV_READER_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQuDj0R6K85sdtI8I-Tc7RCx8CnIxKUQue0TCUdrFOKDw9G3JRtGhl64laDd3apApEvIJTdPFJ9fEUL/pubhtml?gid=0&single=true";
+    private static String CSV_READER_URL = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv";
+    //private static String CSV_READER_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQuDj0R6K85sdtI8I-Tc7RCx8CnIxKUQue0TCUdrFOKDw9G3JRtGhl64laDd3apApEvIJTdPFJ9fEUL/pubhtml?gid=0&single=true";
 
     private List<LocStats> allStats = new ArrayList<>();
     public List<LocStats> getAllStats() {
@@ -48,12 +48,18 @@ public class CovidServiceImpl {
 
         for (CSVRecord record : records) {
             LocStats locationStat = new LocStats();
-            System.out.println(record);
+            locationStat.setState(record.get(0));
             locationStat.setNation(record.get(1));
-            locationStat.setConfirmedCases(record.get(2));
-            locationStat.setDeath(record.get(3));
-            locationStat.setRecover(record.get(4));
 
+            if(record.get(record.size() - 1).equals("")) {
+                latestCases = 0;
+                prevDayCases = 0;
+            }else {
+                latestCases = Integer.parseInt(record.get(record.size() - 1));
+                prevDayCases = Integer.parseInt(record.get(record.size() - 2));
+            }
+            locationStat.setLatestTotalCases(latestCases);
+            locationStat.setDiffFromPrevDay(latestCases - prevDayCases);
             newStats.add(locationStat);
         }
         this.allStats = newStats;
